@@ -12,7 +12,7 @@ public class VictoryZone : MonoBehaviour
 
     void UnlockNewLevel()
     {
-        if (PlayerPrefs.GetInt("ReachedIndex", 1) < 2)
+        if (PlayerPrefs.GetInt("ReachedIndex", 1) < 5)
         {
             PlayerPrefs.SetInt("ReachedIndex", SceneManager.GetActiveScene().buildIndex + 1);
             PlayerPrefs.SetInt("LastLoaded", PlayerPrefs.GetInt("ReachedIndex", 1));
