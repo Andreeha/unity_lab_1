@@ -5,7 +5,17 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("UnlockedLevel", 1));
+        PlayerPrefs.SetInt("LastLoaded", 1);
+        PlayerPrefs.SetInt("ReachedIndex", 1);
+        PlayerPrefs.Save();
+        SceneManager.LoadSceneAsync(1);
+    }
+
+    public void ContinueGame()
+    {
+        PlayerPrefs.GetInt("ReachedIndex", PlayerPrefs.GetInt("LastLoaded", 1));
+        PlayerPrefs.Save();
+        SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("ReachedIndex", 1));
     }
 
     public void ExitGame()

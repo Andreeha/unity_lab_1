@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Win()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("ReachedIndex", 1));
     }
     
     private void Awake()
