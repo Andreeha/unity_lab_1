@@ -65,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadSceneAsync(0);
+        }
     }
     
     private void Jump()
