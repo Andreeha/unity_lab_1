@@ -7,6 +7,21 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     private Animator animator;
     private bool grounded;
+
+    private void Respawn()
+    {
+        body.position = new Vector2(0, 1);
+    }
+
+    public void Die()
+    {
+        Respawn();
+    }
+
+    public void Win()
+    {
+        Respawn();
+    }
     
     private void Awake()
     {
@@ -40,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (grounded)
         {
-            body.linearVelocity = new Vector2(body.linearVelocity.x, speed);
+            body.linearVelocity = new Vector2(body.linearVelocity.x, 3 * speed);
             grounded = false;
         }
     }
