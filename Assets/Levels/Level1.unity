@@ -296,6 +296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!95 &75809471
 Animator:
   serializedVersion: 7
@@ -386,7 +389,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -2.978444, y: -1.8588778}
+  m_Offset: {x: -2.620471, y: -3.8635607}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -396,7 +399,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 27.307379, y: 1.3925531}
+  m_Size: {x: 51.11212, y: 2.7049923}
   m_EdgeRadius: 0
 --- !u!212 &132602984
 SpriteRenderer:
@@ -711,7 +714,7 @@ GameObject:
   - component: {fileID: 1231697529}
   - component: {fileID: 1231697528}
   - component: {fileID: 1231697527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -828,8 +831,8 @@ Transform:
   m_GameObject: {fileID: 1231697526}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.244194, y: -1.0321, z: 0.071154535}
-  m_LocalScale: {x: 6.945474, y: 3.6623347, z: 1}
+  m_LocalPosition: {x: -8.244194, y: -7.9685, z: 0.071154535}
+  m_LocalScale: {x: 6.945474, y: 17.534893, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1899320083}
@@ -992,7 +995,7 @@ GameObject:
   - component: {fileID: 1578990789}
   - component: {fileID: 1578990788}
   - component: {fileID: 1578990787}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1109,8 +1112,8 @@ Transform:
   m_GameObject: {fileID: 1578990786}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7458057, y: -0.8894, z: 0.071154535}
-  m_LocalScale: {x: 6.945474, y: 3.3767755, z: 1}
+  m_LocalPosition: {x: 1.7458057, y: -9.9382, z: 0.071154535}
+  m_LocalScale: {x: 6.945474, y: 21.474266, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1899320083}
