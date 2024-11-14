@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Win()
     {
-        Respawn();
+        SceneManager.LoadSceneAsync(0);
     }
     
     private void Awake()
