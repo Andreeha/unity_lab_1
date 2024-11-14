@@ -35,37 +35,30 @@ public class PlayerMovement : MonoBehaviour
 
     private bool HitWall(float vx)
     {
-        if (vx < 0)
-        {
-            RaycastHit2D raycastHitL = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.left, 0.01f, groundLayer);
-            return raycastHitL.collider != null;
-        }
-        if (vx > 0)
-        {
-            RaycastHit2D raycastHitR = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.right, 0.01f, groundLayer);
-            return raycastHitR.collider != null;
-        }
-        return false;
+        RaycastHit2D raycastHitR = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.05f, groundLayer);
+        return raycastHitR.collider != null;
     }
     
     private void Update()
     {
         float vx = Input.GetAxis("Horizontal");
+
+        if (vx > 0.01f)
+        {
+            transform.localScale = new Vector3(Math.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (vx < -0.01f)
+        {
+            transform.localScale = new Vector3(-Math.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+
         if (!HitWall(vx)) {
             body.linearVelocity = new Vector2(speed * vx, body.linearVelocity.y);
-            
-            if (vx > 0.01f)
-            {
-                transform.localScale = new Vector3(Math.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
-            else if (vx < -0.01f)
-            {
-                transform.localScale = new Vector3(-Math.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
         } else {
-            body.linearVelocity = Vector2.zero;
+            body.linearVelocity = new Vector2(0, body.linearVelocity.y);
             vx = 0;
         }
+
         animator.SetBool("walk", vx != 0);
         
         if (Input.GetKey(KeyCode.Space))
@@ -76,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void Jump()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.01f, groundLayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         grounded = raycastHit.collider != null;
         if (grounded)
         {
@@ -87,5 +80,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.01f, groundLayer);
+        grounded = raycastHit.collider != null;
     }
 }
